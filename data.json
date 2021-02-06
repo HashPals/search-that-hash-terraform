@@ -1,0 +1,13 @@
+[
+    {
+    "Hash": "5f4dcc3b5aa765d61d8327deb882cf99",
+    "Plaintext": "password",
+    "Type": "MD5"
+    },
+
+    {
+        "Hash": "aaa4dcc3b5aa765d61d8327deb882cf99",
+        "Plaintext": "bssassword",
+        "Type": "MD5"
+}
+]
