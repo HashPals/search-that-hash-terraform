@@ -1,0 +1,19 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "HashLookup",
+    "description": "If an API lookup does not match this model, it will fail.",
+	"type": "object",
+	"properties": {
+		"Hash": {
+			"description": "The hashes to look up.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"minItems": 1,
+			"uniqueItems": true
+		}
+	},
+	"required": ["Hash"],
+	"additionalProperties": false
+}

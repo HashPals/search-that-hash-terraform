@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+      "title": "insert",
+      "description": "When inserting data into the DB, it has to look like this.",
+      "type": "object",
+      "properties": {
+          "Hash": {
+              "type": "string"
+          },
+          "Plaintext": {
+              "type": "string"
+          },
+          "Type": {
+              "description": "Age in years",
+              "type": "string"
+          }
+      },
+      "required": ["Hash", "Plaintext",  "Type"],
+      "additionalProperties": false
+  }

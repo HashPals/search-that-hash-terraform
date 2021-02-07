@@ -3,7 +3,6 @@ import boto3
 dynamo_client = boto3.resource('dynamodb')
 
 def lambda_handler(event, context):
-
     body = event["Hash"]
 
     table = dynamo_client.Table("hash_lookup")
@@ -12,12 +11,13 @@ def lambda_handler(event, context):
     # Calculate the plaintext and reutrn it
     response = {}
     for i in body:
-        data = (table.get_item(Key={"Hash": i}))["Item"]
-        print("Data is ", data)
+        data = (table.get_item(Key={"Hash": i}))
+        if not "Item" in data:
+            continue
+        data = data["Item"]
         if not data["Verified"]:
             # Updates it if it's not verifie
             non_verified = update_non_verified(data)
-            print(f"Non verified is {non_verified}")
             table.put_item(Item=non_verified)
             # Remove TTL and Uses from data
         if "Uses" in data:
