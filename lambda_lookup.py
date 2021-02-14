@@ -24,6 +24,7 @@ def lambda_handler(event, context):
             data["Uses"] = data["Uses"] + 1
         else:
             data["Uses"] = 1
+        data["Plaintext"] = data["Plaintext"].strip()
         table.put_item(Item=data)
         data = remove_info(data)
             

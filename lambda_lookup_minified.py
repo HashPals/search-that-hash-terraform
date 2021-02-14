@@ -1,23 +1,25 @@
-B='TTL'
-A='Uses'
+C='TTL'
+B='Uses'
 import boto3
-C=boto3.resource('dynamodb')
-def F(event,context):
-	F='Item';B='Hash';body=event[B];table=C.Table('hash_lookup');response={}
-	for i in body:
-		data=table.get_item(Key={B:i})
-		if not F in data:continue
-		data=data[F]
-		if not data['Verified']:non_verified=D(data);table.put_item(Item=non_verified)
-		if A in data:data[A]=data[A]+1
-		else:data[A]=1
-		table.put_item(Item=data);data=E(data);response[i]=data
-	return{'statusCode':200,'body':response}
-def D(row):
-	if row[A]>=5:
-		if B in row:del row[B]
-	return row
-def E(row):
-	if B in row:del row[B]
-	if A in row:del row[A]
-	return row
+F=boto3.resource('dynamodb')
+def A(event,context):
+	M='Plaintext';L='Item';K='Hash';I=event[K];C=F.Table('hash_lookup');D={}
+	for E in I:
+		A=C.get_item(Key={K:E})
+		if not L in A:continue
+		A=A[L]
+		if not A['Verified']:J=G(A);C.put_item(Item=J)
+		if B in A:A[B]=A[B]+1
+		else:A[B]=1
+		A[M]=A[M].strip();C.put_item(Item=A);A=H(A);D[E]=A
+	return{'statusCode':200,'body':D}
+def G(row):
+	A=row
+	if A[B]>=5:
+		if C in A:del A[C]
+	return A
+def H(row):
+	A=row
+	if C in A:del A[C]
+	if B in A:del A[B]
+	return A
